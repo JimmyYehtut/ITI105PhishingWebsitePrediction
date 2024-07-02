@@ -1,0 +1,7 @@
+use the following code snippet to generate requirements.txt file from Anaconda env
+
+conda activate <env>
+conda install pip
+pip freeze > requirements.txt
+
+edit for necessary only and upload it in github, then create app from streamlit.

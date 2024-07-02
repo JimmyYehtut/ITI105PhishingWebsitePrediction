@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import base64
+from sklearn import linear_model
 
 @st.cache(suppress_st_warning=True)
 def get_fvalue(val):
@@ -95,7 +96,8 @@ elif app_mode =='Prediction':
         data_url_no = base64.b64encode(contents).decode("utf-8")
         file.close()
    
-   
+        # with open('model_pkl', 'rb') as file:
+        #     loaded_model = pickle.load(file)
         loaded_model = pickle.load(open('Random_Forest.sav', 'rb'))
         prediction = loaded_model.predict(single_sample)
         if prediction[0] == 0 :
